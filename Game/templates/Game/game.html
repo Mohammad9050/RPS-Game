@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game</title>
+</head>
+<body>
+    <h3>me : {{ my_point }} ** pc : {{ pc_point }}</h3><h3 style="text-align: center">Round : {{ round_game }}</h3>
+
+    <form method="get" action="" name="game-obj">
+        {{ form.opinion }}
+        <button type="submit">choose</button>
+    </form>
+    <hr>
+    {% if round_game != 0 %}
+        <p>opponent choice: {{ obj_pc }} </p>
+    {% endif %}
+    <hr>
+    <a href="{% url "Game:leave" num=num %}">Leave</a>
+</body>
+</html>

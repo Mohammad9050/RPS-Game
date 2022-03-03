@@ -1,0 +1,44 @@
+{% extends 'Game/base.html' %}
+{% load static %}
+
+{% block title %}Game{% endblock title %}
+
+{% block head %}
+     <link rel="stylesheet" type="text/css" href="{% static "Home/css/home.css" %}">
+{% endblock head %}
+
+
+{% block header %}
+    <a href="{% url "Home:edit_user" %}">Profile</a>
+    <a href="{% url "Game:table" %}">Table</a>
+    {% if user.is_authenticated %}
+        <a href="{% url "Home:logout" %}">Logout</a>
+    {% else %}
+        <a href="{% url "Home:login" %}">Login</a>
+    {% endif %}
+{% endblock %}
+
+
+{% block contact %}
+    <h2>{{ pro.user.username }}</h2>
+    {% if user.is_authenticated %}
+        <h3 style="text-align: center">Wins : {{ win }} ----- Lost : {{ lost }}</h3>
+
+        <p>balance : {{ pro.balance }}</p>
+    {% endif %}
+        <div class="game-div" id="left">
+           <h2>Game 1</h2>
+           <a href="{% url "Game:game" num=25 %}">Play</a>
+           <p>Coin Need: 25</p>
+       </div>
+        <div class="game-div" id="center">
+            <h2>Game 2</h2>
+            <a href="{% url "Game:game" num=50 %}">Play</a>
+            <p>Coin Need: 50</p>
+        </div>
+        <div class="game-div" id="right">
+            <h2>Game 3</h2>
+            <a href="{% url "Game:game" num=100 %}">Play</a>
+            <p>Coin Need: 100</p>
+        </div>
+{% endblock contact %}

@@ -1,0 +1,42 @@
+{% extends 'Game/base.html' %}
+{% block head %}
+<style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+</style>
+{% endblock %}
+{% block header %}
+    <a href="{% url "Home:edit_user"  %}">Profile</a>
+
+{% endblock %}
+
+{% block contact %}
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Win</th>
+            <th>Lost</th>
+            <th>Record</th>
+        </tr>
+    {% for i in users %}
+        <tr {% if i == pro %} style="background-color: darkseagreen"{% endif %}>
+            <td>{{ i.user.username }}</td>
+            <td>{{ i.win_record }}</td>
+            <td>{{ i.lost_record }}</td>
+            <td>{{ i.percent_record }}%</td>
+        </tr>
+
+    {% endfor %}
+
+    </table>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'Game/base.html' %}
+
+{% block title %}
+    Edit User
+{% endblock %}
+{% block header %}
+    <a href="{% url 'Game:table' %}">Table</a>
+{% endblock %}
+{% block contact %}
+    <p>Username : {{ user.username }}</p>
+    <p>Balance : {{ user.profile.balance }}</p>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save changes!</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends 'Game/base.html' %}
+
+{% block contact %}
+    <h2>{{ user.username }}</h2>
+    <h3 style="color: {% if res == 'win' %}green{% else %}red{% endif %}">{{ res }}</h3>
+
+    <a href="{% url "Game:home" %}">Home</a>
+
+{% endblock %}

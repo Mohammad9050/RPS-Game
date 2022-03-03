@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <link rel="stylesheet" type="text/css" href="{% static "Home/css/log.css" %}">
+</head>
+<body>
+<form action="" method="post">
+    {% csrf_token %}
+    {% include "Home/_sgin_up.html" with field=form.username %}
+    <br><br>
+    {% include "Home/_sgin_up.html" with field=form.password1 %}
+    <br><br>
+    {% include "Home/_sgin_up.html" with field=form.password2 %}
+    <br><br>
+    <button type="submit" class="bucls">Sign Up</button>
+
+</form>
+</body>
+</html>
